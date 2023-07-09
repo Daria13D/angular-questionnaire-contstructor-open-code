@@ -1,0 +1,59 @@
+<form [formGroup]="form">
+  <div class="form-input">
+    <input formControlName="title"type="text" class="title" placeholder="Название анкеты">
+    
+    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div *ngIf="title.errors?.['required']">
+        <small>Название анкеты обязательное поле</small>
+      </div>
+    </div>
+  </div>
+
+  <div 
+    formArrayName="questions"
+    *ngFor="let q of questions.controls; index as i">
+    <div [formGroupName]="i">
+      <input formControlName="qText" type="text" class="q-input" placeholder="Вопрос №{{i + 1}}">
+      <div *ngIf="getQuestionText(i).invalid && (getQuestionText(i).dirty || getQuestionText(i).touched)" style="text-align: center;">
+        <div *ngIf="getQuestionText(i).errors?.['required']">
+          <small>Вопрос №{{ i + 1 }} обязательное поле</small>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn" (click)="addAnswer(i)">Добавить ответ</button>
+        <button class="btn" [disabled]="questions.length <= 1" (click)="deleteQuestion(i)">Удалить вопрос</button>
+      </div>
+      
+      <div *ngIf="getRightAnswerRadio(i).invalid && (getQuestionText(i).dirty || getQuestionText(i).touched)">
+        <div>
+          <small>Выберите правильный ответ</small>
+        </div>
+      </div>
+
+      <div class="a-container">
+        <div *ngFor="let a of getAnswersControls(i); index as j">
+          <input type="radio" [value]="j" formControlName="rightAnswerIdx">
+          <span formArrayName="answers">
+            <input class="reqiered" [formControlName]="j" type="text" placeholder="Ответ №{{j + 1}}">
+          </span>
+          <button class="btn" [disabled]="getAnswersControls(i).length <= 2" (click)="deleteAnswer(i, j)">Удалить ответ</button>
+
+          <div *ngIf="getAnswer(i, j).invalid && (getAnswer(i, j).dirty || getAnswer(i, j).touched)">
+            <div *ngIf="getAnswer(i, j).errors?.['required']">
+              <small>Ответ №{{ j + 1 }} обязательное поле</small>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <button class="btn" (click)="addQuestion()" >Добавить вопрос</button>
+
+  <div>
+    <button class="create" [disabled]="form.invalid || questions.invalid" (click)="createQuestionnaire()">Создать анкету</button>
+  </div>
+  <div *ngIf="title.invalid && questions.invalid && (title.dirty || title.touched || questions.dirty || questions.touched)">
+    <small>Анкета неверно заполнена</small>
+  </div>
+</form>

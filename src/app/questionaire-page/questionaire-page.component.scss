@@ -1,0 +1,50 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  margin: 1rem;
+  color:black;
+  margin-bottom: 30px;
+}
+.answer{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: black;
+}
+.requres{
+  font-size: 15px;
+  color: black;
+}
+.requre{
+
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.form {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  border: none;
+  margin-top: 1rem;
+  width: 200px;
+  padding: 0.8rem 0.75rem;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: black;
+}
+button:hover{
+  transition: background-color 0.3s ease-in-out;
+  background-color: white;
+  color: black;
+}

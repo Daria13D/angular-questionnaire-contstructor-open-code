@@ -1,0 +1,51 @@
+h1 {
+  color: white;
+  margin-left: 6rem;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 70px;
+}
+
+.navbar {
+  display: flex;
+  height: 5rem;
+  align-items: center;
+  background-color: black;
+}
+.menu{
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.menu a:not(:last-child){
+  margin-right: 70px;
+}
+.profile{
+  margin-left: auto;
+  margin-right: 50px;
+}
+.person{
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px;
+}
+.person:hover{
+  width: 50px;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  padding-top: 3rem;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.menu a:hover{
+  color: white;
+  border-bottom: 1px solid white;
+  padding-bottom: 3px; 
+}

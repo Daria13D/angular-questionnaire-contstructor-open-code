@@ -1,0 +1,48 @@
+h1 {
+  color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  padding-left: 100px;
+}
+
+.navbar {
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+}
+
+.btns {
+  display: flex;
+  margin: 1.5rem;
+}
+
+.container {
+  position: relative;
+}
+
+a {
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+.register{
+  text-decoration: none;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  padding: 11px 15px;
+}
+.register:hover{
+  background-color: black;
+  color: white;
+}
+.person{
+  background-color: white;
+  border-radius: 30px;
+  padding: 5px;
+}
+.person:hover{
+  width: 50px;
+  padding: 0;
+}
